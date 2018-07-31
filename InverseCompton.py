@@ -17,11 +17,11 @@ SpectrumType = 1
 SpectrumPars = (K, n, gamma_min, gamma_max)
 
 nu_Synchrotron = np.load('../Synchrotron/nu.npy')
-nu = np.logspace(15, 25, 1000)
+nu = np.logspace(15, 25, 100)
 for B in [1]:#, 10, 100]:
     j_Synchrotron = np.load(f'../Synchrotron/j_{B}.npy')
     k_Synchrotron = np.load(f'../Synchrotron/k_{B}.npy')
-    print(B)
+
     tmin = time.time()
     j = InverseCompton.J(nu, B, R, SpectrumType, SpectrumPars, list(nu_Synchrotron[j_Synchrotron > 1e-99]), list(j_Synchrotron[j_Synchrotron > 1e-99]), list(k_Synchrotron[j_Synchrotron > 1e-99]))
     tmax = time.time()

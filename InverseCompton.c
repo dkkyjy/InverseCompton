@@ -60,12 +60,12 @@ double Q(double Ec, double B, double R, int SpectrumType, double* pars,
     double nu_min = PyFloat_AsDouble(PyList_GetItem(nuList, 0));
     double nu_max = PyFloat_AsDouble(PyList_GetItem(nuList, NList-1));
 
-    int Nbins_Es = 500;
+    int Nbins_Es = 300;
     double Es_min = Nu2E(nu_min);
     double Es_max = Nu2E(nu_max);
     double dlog_Es = (log10(Es_max) - log10(Es_min)) / Nbins_Es;
 
-    int Nbins_gamma = 500;
+    int Nbins_gamma = 200;
     double gamma_min;
     double gamma_max;
     if(SpectrumType == 1){
